@@ -8,6 +8,7 @@ namespace Muda.Checker.WPF.ViewModels
     {
         private TargetDirectory _targetDirectory = TargetDirectory.Empty;
         private TargetYear _targetYear = TargetYear.Empty;
+        private bool _isRunning = false;
 
         public MainWindowViewModel()
         {
@@ -32,5 +33,13 @@ namespace Muda.Checker.WPF.ViewModels
         }
 
         public ICommand RunCommand { get; }
+        public bool IsRunning
+        {
+            get => _isRunning;
+            set
+            {
+                SetProperty(ref _isRunning, value);
+            }
+        }
     }
 }

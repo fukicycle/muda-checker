@@ -21,6 +21,7 @@ namespace Muda.Checker.Test
             _viewModel.TargetYear.Value.Is(0);
             _viewModel.TargetYear.DisplayValue.Is("“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
             _viewModel.RunCommand.CanExecute(null).Is(false);
+            _viewModel.IsRunning.Is(false);
         }
     }
 }

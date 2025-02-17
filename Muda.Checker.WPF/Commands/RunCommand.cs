@@ -1,4 +1,5 @@
-﻿using Muda.Checker.Domain.ValueObjects;
+﻿using Muda.Checker.Domain.Logics;
+using Muda.Checker.Domain.ValueObjects;
 using Muda.Checker.WPF.ViewModels;
 using System.Windows.Input;
 
@@ -20,9 +21,13 @@ namespace Muda.Checker.WPF.Commands
                 && _viewModel.TargetYear != TargetYear.Empty;
         }
 
-        public void Execute(object? parameter)
+        public async void Execute(object? parameter)
         {
-            throw new NotImplementedException();
+            _viewModel.IsRunning = true;
+            var directories = await DirectoryService.GetAllDirectoriesAsync(_viewModel.TargetDirectory);
+            var targetFiles = await FileService.GetAllFilesAsync(directories, _viewModel.TargetYear);
+            await CsvService.SaveAsync(targetFiles);
+            _viewModel.IsRunning = false;
         }
     }
 }
