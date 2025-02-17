@@ -22,6 +22,8 @@ namespace Muda.Checker.Test
             _viewModel.TargetYear.DisplayValue.Is("ƒ{ƒ^ƒ“‚Å•ÏX‚µ‚Ä‚­‚¾‚³‚¢");
             _viewModel.RunCommand.CanExecute(null).Is(false);
             _viewModel.IsRunning.Is(false);
+            _viewModel.StatusMessage.Value.Is(string.Empty);
+            _viewModel.StatusMessage.ForegroundColor.Is("Green");
         }
     }
 }
