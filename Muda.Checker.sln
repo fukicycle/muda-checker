@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muda.Checker.WPF", "Muda.Ch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muda.Checker.Domain", "Muda.Checker.Domain\Muda.Checker.Domain.csproj", "{12B1C4AA-0ECB-4A61-9FD4-446DDB59048C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muda.Checker.Test", "Muda.Checker.Test\Muda.Checker.Test.csproj", "{72DF3E78-1DBA-4124-8B26-8AA46F42AD8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{12B1C4AA-0ECB-4A61-9FD4-446DDB59048C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12B1C4AA-0ECB-4A61-9FD4-446DDB59048C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12B1C4AA-0ECB-4A61-9FD4-446DDB59048C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72DF3E78-1DBA-4124-8B26-8AA46F42AD8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72DF3E78-1DBA-4124-8B26-8AA46F42AD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72DF3E78-1DBA-4124-8B26-8AA46F42AD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72DF3E78-1DBA-4124-8B26-8AA46F42AD8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
