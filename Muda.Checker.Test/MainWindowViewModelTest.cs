@@ -13,7 +13,7 @@ namespace Muda.Checker.Test
         }
 
         [Test]
-        public void ‰Šúó‘Ô‚ª³‚µ‚¢()
+        public void CorrectInitialValue()
         {
             _viewModel.TargetDirectory.Is(TargetDirectory.Empty);
             _viewModel.TargetDirectory.Value.Is("‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢");
