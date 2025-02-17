@@ -9,7 +9,7 @@ namespace Muda.Checker.WPF.ViewModels
         private TargetDirectory _targetDirectory = TargetDirectory.Empty;
         private TargetYear _targetYear = TargetYear.Empty;
         private bool _isRunning = false;
-        private StatusMessage _statusMessage = new StatusMessage(string.Empty);
+        private StatusMessage _statusMessage = StatusMessage.Empty;
 
         public MainWindowViewModel()
         {
@@ -17,6 +17,7 @@ namespace Muda.Checker.WPF.ViewModels
             UpCommand = new UpCommand(this);
             DownCommand = new DownCommand(this);
             OpenFolderDialogCommand = new OpenFolderDialogCommand(this);
+            OpenFileCommand = new OpenFileCommand(this);
         }
         public TargetDirectory TargetDirectory
         {
@@ -58,5 +59,6 @@ namespace Muda.Checker.WPF.ViewModels
         public ICommand UpCommand { get; }
         public ICommand DownCommand { get; }
         public ICommand OpenFolderDialogCommand { get; }
+        public ICommand OpenFileCommand { get; }
     }
 }

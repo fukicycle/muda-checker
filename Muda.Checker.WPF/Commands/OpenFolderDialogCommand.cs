@@ -26,6 +26,7 @@ namespace Muda.Checker.WPF.Commands
             OpenFolderDialog ofd = new OpenFolderDialog();
             if (ofd.ShowDialog() == true)
             {
+                _viewModel.StatusMessage = StatusMessage.Empty;
                 _viewModel.TargetDirectory = new TargetDirectory(ofd.FolderName);
             }
         }

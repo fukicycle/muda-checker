@@ -22,8 +22,9 @@ namespace Muda.Checker.Test
             _viewModel.TargetYear.DisplayValue.Is("ボタンで変更してください");
             _viewModel.RunCommand.CanExecute(null).Is(false);
             _viewModel.IsRunning.Is(false);
+            _viewModel.StatusMessage.Is(StatusMessage.Empty);
             _viewModel.StatusMessage.Value.Is(string.Empty);
-            _viewModel.StatusMessage.ForegroundColor.Is("Green");
+            _viewModel.StatusMessage.ForegroundColor.Is("White");
         }
     }
 }

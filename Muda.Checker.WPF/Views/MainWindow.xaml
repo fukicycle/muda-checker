@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:Muda.Checker.WPF.ViewModels"
         mc:Ignorable="d"
         FontSize="17"
-        Title="ムダファイルチェッカー" Height="260" Width="650">
+        Title="ムダファイルチェッカー" Height="300" Width="750">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -41,6 +41,7 @@
                     <TextBlock Text="{Binding StatusMessage.Value}"/>
                 </TextBlock.ToolTip>
             </TextBlock>
+            <Button Content="開く" Command="{Binding OpenFileCommand}" Style="{DynamicResource MahApps.Styles.Button.MetroSquare.Accent}"/>
         </StackPanel>
         <Label Background="#CC000000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             <Label.Style>

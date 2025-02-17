@@ -24,14 +24,14 @@ namespace Muda.Checker.WPF.Commands
 
         public async void Execute(object? parameter)
         {
-            _viewModel.StatusMessage = new StatusMessage(string.Empty);
+            _viewModel.StatusMessage = StatusMessage.Empty;
             _viewModel.IsRunning = true;
             try
             {
                 var directories = await DirectoryService.GetAllDirectoriesAsync(_viewModel.TargetDirectory);
                 var targetFiles = await FileService.GetAllFilesAsync(directories, _viewModel.TargetYear);
                 string path = await CsvService.SaveAsync(targetFiles);
-                _viewModel.StatusMessage = new StatusMessage($"{path}に保存しました。");
+                _viewModel.StatusMessage = new StatusMessage(path);
             }
             catch (Exception e)
             {
