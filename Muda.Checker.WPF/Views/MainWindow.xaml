@@ -1,12 +1,50 @@
-﻿<Window x:Class="Muda.Checker.WPF.MainWindow"
+﻿<mah:MetroWindow x:Class="Muda.Checker.WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Muda.Checker.WPF"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:vm="clr-namespace:Muda.Checker.WPF.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        FontSize="17"
+        Title="ムダファイルチェッカー" Height="240" Width="650">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" Margin="4">
+                <TextBlock Text="対象のフォルダ"/>
+                <Border BorderBrush="DimGray" BorderThickness="1">
+                    <TextBlock Text="{Binding TargetDirectory.Value}" />
+                </Border>
+                <Button Content="フォルダを選択" Style="{DynamicResource MahApps.Styles.Button.MetroSquare.Accent}" Command="{Binding OpenFolderDialogCommand}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="4">
+                <TextBlock Text="経過年数"/>
+                <StackPanel Orientation="Horizontal">
+                    <Border Width="180" BorderBrush="DimGray" BorderThickness="1" VerticalAlignment="Center">
+                        <TextBlock Text="{Binding TargetYear.DisplayValue}" />
+                    </Border>
+                    <Button Width="100" Content="増加" Style="{DynamicResource MahApps.Styles.Button.MetroSquare.Accent}" Command="{Binding UpCommand}"/>
+                    <Button Width="100" Content="減少" Style="{DynamicResource MahApps.Styles.Button.MetroSquare.Accent}" Command="{Binding DownCommand}"/>
+                </StackPanel>
+            </StackPanel>
+            <Button Content="実行" Command="{Binding RunCommand}" Style="{DynamicResource MahApps.Styles.Button.MetroSquare.Accent}"/>
+        </StackPanel>
+        <Label Background="#CC000000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsRunning}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+            <mah:ProgressRing IsActive="True"/>
+        </Label>
     </Grid>
-</Window>
+</mah:MetroWindow>

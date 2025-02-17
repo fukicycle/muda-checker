@@ -19,7 +19,7 @@ namespace Muda.Checker.Test
             _viewModel.TargetDirectory.Value.Is("選択してください");
             _viewModel.TargetYear.Is(TargetYear.Empty);
             _viewModel.TargetYear.Value.Is(0);
-            _viewModel.TargetYear.DisplayValue.Is("入力してください");
+            _viewModel.TargetYear.DisplayValue.Is("ボタンで変更してください");
             _viewModel.RunCommand.CanExecute(null).Is(false);
             _viewModel.IsRunning.Is(false);
         }

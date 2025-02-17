@@ -13,6 +13,9 @@ namespace Muda.Checker.WPF.ViewModels
         public MainWindowViewModel()
         {
             RunCommand = new RunCommand(this);
+            UpCommand = new UpCommand(this);
+            DownCommand = new DownCommand(this);
+            OpenFolderDialogCommand = new OpenFolderDialogCommand(this);
         }
         public TargetDirectory TargetDirectory
         {
@@ -32,7 +35,6 @@ namespace Muda.Checker.WPF.ViewModels
             }
         }
 
-        public ICommand RunCommand { get; }
         public bool IsRunning
         {
             get => _isRunning;
@@ -41,5 +43,10 @@ namespace Muda.Checker.WPF.ViewModels
                 SetProperty(ref _isRunning, value);
             }
         }
+
+        public ICommand RunCommand { get; }
+        public ICommand UpCommand { get; }
+        public ICommand DownCommand { get; }
+        public ICommand OpenFolderDialogCommand { get; }
     }
 }

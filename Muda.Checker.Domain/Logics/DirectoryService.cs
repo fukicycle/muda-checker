@@ -1,10 +1,5 @@
 ﻿using Muda.Checker.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Muda.Checker.Domain.Logics
 {
@@ -14,16 +9,15 @@ namespace Muda.Checker.Domain.Logics
         {
             return await Task.Run(async () =>
             {
-                ImmutableList<string> directories = [];
-                var children = Directory.GetDirectories(rootDirectory.Value);
+                ImmutableList<string> children = Directory.GetDirectories(rootDirectory.Value).ToImmutableList();
                 if (children.Any())
                 {
                     foreach (var child in children)
                     {
-                        directories = directories.AddRange(await GetAllDirectoriesAsync(new TargetDirectory(child)));
+                        children = children.AddRange(await GetAllDirectoriesAsync(new TargetDirectory(child)));
                     }
                 }
-                return directories;
+                return children;
             });
         }
     }

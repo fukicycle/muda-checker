@@ -18,7 +18,8 @@ namespace Muda.Checker.WPF.Commands
         public bool CanExecute(object? parameter)
         {
             return _viewModel.TargetDirectory != TargetDirectory.Empty
-                && _viewModel.TargetYear != TargetYear.Empty;
+                && _viewModel.TargetYear != TargetYear.Empty
+                && !_viewModel.IsRunning;
         }
 
         public async void Execute(object? parameter)
