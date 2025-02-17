@@ -10,11 +10,12 @@ namespace Muda.Checker.Domain.Logics
 {
     public static class CsvService
     {
-        public static async Task SaveAsync(ImmutableList<Result> results)
+        public static async Task<string> SaveAsync(ImmutableList<Result> results)
         {
             string[] lines = results.Select(a => $"\"{a.FileName}\",\"{a.LastAccessTime:yyyy-MM-dd HH:mm:ss}\"").ToArray();
             string path = GetPath(1);
             await File.WriteAllTextAsync(path, string.Join(Environment.NewLine, lines));
+            return path;
         }
 
         private static string GetPath(int rev)

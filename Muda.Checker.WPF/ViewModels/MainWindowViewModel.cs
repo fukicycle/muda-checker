@@ -9,6 +9,7 @@ namespace Muda.Checker.WPF.ViewModels
         private TargetDirectory _targetDirectory = TargetDirectory.Empty;
         private TargetYear _targetYear = TargetYear.Empty;
         private bool _isRunning = false;
+        private StatusMessage _statusMessage = new StatusMessage(string.Empty);
 
         public MainWindowViewModel()
         {
@@ -41,6 +42,15 @@ namespace Muda.Checker.WPF.ViewModels
             set
             {
                 SetProperty(ref _isRunning, value);
+            }
+        }
+
+        public StatusMessage StatusMessage
+        {
+            get => _statusMessage;
+            set
+            {
+                SetProperty(ref _statusMessage, value);
             }
         }
 

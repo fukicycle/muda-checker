@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:Muda.Checker.WPF.ViewModels"
         mc:Ignorable="d"
         FontSize="17"
-        Title="ムダファイルチェッカー" Height="240" Width="650">
+        Title="ムダファイルチェッカー" Height="260" Width="650">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -17,7 +17,11 @@
             <StackPanel Orientation="Vertical" Margin="4">
                 <TextBlock Text="対象のフォルダ"/>
                 <Border BorderBrush="DimGray" BorderThickness="1">
-                    <TextBlock Text="{Binding TargetDirectory.Value}" />
+                    <TextBlock Text="{Binding TargetDirectory.Value}">
+                        <TextBlock.ToolTip>
+                            <TextBlock Text="{Binding TargetDirectory.Value}"/>
+                        </TextBlock.ToolTip>
+                    </TextBlock>
                 </Border>
                 <Button Content="フォルダを選択" Style="{DynamicResource MahApps.Styles.Button.MetroSquare.Accent}" Command="{Binding OpenFolderDialogCommand}"/>
             </StackPanel>
@@ -32,6 +36,11 @@
                 </StackPanel>
             </StackPanel>
             <Button Content="実行" Command="{Binding RunCommand}" Style="{DynamicResource MahApps.Styles.Button.MetroSquare.Accent}"/>
+            <TextBlock Text="{Binding StatusMessage.Value}" Foreground="{Binding StatusMessage.ForegroundColor}" Margin="4">
+                <TextBlock.ToolTip>
+                    <TextBlock Text="{Binding StatusMessage.Value}"/>
+                </TextBlock.ToolTip>
+            </TextBlock>
         </StackPanel>
         <Label Background="#CC000000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             <Label.Style>
