@@ -13,13 +13,13 @@ namespace Muda.Checker.Test
         }
 
         [Test]
-        public void 初期状態が正しい()
+        public void 蛻晄悄迥ｶ諷九′豁｣縺励＞()
         {
             _viewModel.TargetDirectory.Is(TargetDirectory.Empty);
-            _viewModel.TargetDirectory.Value.Is("選択してください");
+            _viewModel.TargetDirectory.Value.Is("驕ｸ謚槭＠縺ｦ縺上□縺輔＞");
             _viewModel.TargetYear.Is(TargetYear.Empty);
             _viewModel.TargetYear.Value.Is(0);
-            _viewModel.TargetYear.DisplayValue.Is("ボタンで変更してください");
+            _viewModel.TargetYear.DisplayValue.Is("繝懊ち繝ｳ縺ｧ螟画峩縺励※縺上□縺輔＞");
             _viewModel.RunCommand.CanExecute(null).Is(false);
             _viewModel.IsRunning.Is(false);
             _viewModel.StatusMessage.Value.Is(string.Empty);
